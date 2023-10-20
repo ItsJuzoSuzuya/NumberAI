@@ -1,4 +1,14 @@
 class Layer():
-    def __init__(self, inputs, outputs) -> None:
-        self.inputs = inputs
-        self.outputs = outputs
+    neurons = []
+
+    def __init__(self) -> None:
+        pass
+
+    def addNeuron(self, neuron):
+        self.neurons.append(neuron)
+
+    def getNeurons(self):
+        return self.neurons
+    
+    def clearNeurons(self):
+        self.neurons.clear()
