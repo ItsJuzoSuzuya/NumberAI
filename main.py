@@ -1,8 +1,5 @@
-import time
 from keras.datasets import mnist
-from Layers.InputLayer import InputLayer
-from Layers.OutputLayer import OutputLayer
-from Layers.HiddenLayer import HiddenLayer
+from NeuralNetwork import NeuralNetwork
 
 (train_X, train_y), (test_X, test_y) = mnist.load_data()
 
@@ -13,15 +10,8 @@ from Layers.HiddenLayer import HiddenLayer
 
 # for image in train_X:
 
+NeuralNetwork = NeuralNetwork(train_X[0])
 
-start = time.perf_counter()
-
-inputLayer = InputLayer(train_X[0])
-hiddenLayer1 = HiddenLayer(inputLayer)
-hiddenLayer2 = HiddenLayer(hiddenLayer1)
-outputLayer = OutputLayer(hiddenLayer2)
-
-time = time.perf_counter() - start
 
 
 

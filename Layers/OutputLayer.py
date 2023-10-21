@@ -1,3 +1,4 @@
+import ValueCalculator
 from Neuron import Neuron
 from .Layer import Layer
 
@@ -8,7 +9,11 @@ class OutputLayer(Layer):
         for _ in range(10):
             neuron = Neuron()
             self.addNeuron(neuron)
-            linkedLayer.connectLayer(self)
-            neuron.calculateValue(linkedLayer.getNeurons())
+            
+        linkedLayer.connectLayer(self)
+
+        # neuron.calculateValue(linkedLayer.getNeurons())
+
+        ValueCalculator.calculateValueOfNeuron(self, linkedLayer)
         
     

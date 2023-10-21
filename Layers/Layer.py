@@ -20,6 +20,7 @@ class Layer():
             for destination in nextLayer.getNeurons():
                 randomWeight = random.uniform(-1,1)
                 neuron.addWeight(randomWeight, destination)
+                
 
 
 

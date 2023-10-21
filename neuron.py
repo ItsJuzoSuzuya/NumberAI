@@ -1,4 +1,4 @@
-import math
+import numpy as np
 from typing import List
 
 class Neuron():
@@ -18,21 +18,29 @@ class Neuron():
     
     def addWeight(self, weight, destination):
         self._weights[destination] = weight
-
+    
+    def getAllWeights(self):
+        return [value for value in self._weights.values()]     
+    
     def getWeight(self, destination):
         return self._weights.get(destination)
     
-    def calculateValue(self, linkedNeurons: List['Neuron']):
-        hiddenValue = 0
-        for neuron in linkedNeurons:
-            value = neuron.getValue()
-            weight = neuron.getWeight(self)
-            hiddenValue = hiddenValue + (value * weight)
+    # Own Idea --->
+    # Scraped of because np implementation and calculation trough npArrays is twice as fast
 
-        hiddenValue = sigmoid(hiddenValue+ self.getBias())
+#     def calculateValue(self, linkedNeurons: List['Neuron']):
+#         hiddenValue = 0
+#         for neuron in linkedNeurons:
+#             value = neuron.getValue()
+#             weight = neuron.getWeight(self)
+#             hiddenValue = hiddenValue + (value * weight)
 
-        self.setValue(hiddenValue)
+#         hiddenValue = sigmoid(hiddenValue + self.getBias())
+#         self.setValue(hiddenValue)
 
-def sigmoid(x):
-    y = 1/(1 + math.exp(-x))
-    return y
+
+#         # Matrix wise calculation --->
+        
+# def sigmoid(x):
+#     y = 1/(1 + np.exp(-x))
+#     return y
