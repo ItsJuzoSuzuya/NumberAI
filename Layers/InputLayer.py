@@ -3,7 +3,7 @@ from Neuron import Neuron
 
 class InputLayer(Layer):
     def __init__(self, image) -> None:
-        super().__init__(784)
+        super().__init__(True)
         self.clearNeurons()
         for row in image:
             for pixel in row:

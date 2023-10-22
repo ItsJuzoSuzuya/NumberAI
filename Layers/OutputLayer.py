@@ -4,7 +4,7 @@ from .Layer import Layer
 
 class OutputLayer(Layer):
     def __init__(self, linkedLayer: 'Layer') -> None:
-        super().__init__(10)
+        super().__init__()
         self.clearNeurons()
         for _ in range(10):
             neuron = Neuron()

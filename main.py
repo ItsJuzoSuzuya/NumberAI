@@ -1,7 +1,7 @@
 from keras.datasets import mnist
 from NeuralNetwork import NeuralNetwork
 
-(train_X, train_y), (test_X, test_y) = mnist.load_data()
+(trainImages, trainNumbers), (testImages, testNumbers) = mnist.load_data()
 
 # for i in range(9):  
 #     pyplot.subplot(330 + 1 + i)
@@ -10,7 +10,8 @@ from NeuralNetwork import NeuralNetwork
 
 # for image in train_X:
 
-NeuralNetwork = NeuralNetwork(train_X[0])
+neuralNetwork = NeuralNetwork(trainImages[0], trainNumbers[0])   
+neuralNetwork.train(trainNumbers[1])
 
 
 
@@ -19,4 +20,4 @@ NeuralNetwork = NeuralNetwork(train_X[0])
 
 
 
-    
+     

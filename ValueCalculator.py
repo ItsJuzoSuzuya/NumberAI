@@ -1,6 +1,4 @@
 import numpy as np
-import math
-import time
 from Layers.Layer import Layer
 
 def calculateValueOfNeuron(outputLayer: 'Layer', previousLayer: 'Layer'):

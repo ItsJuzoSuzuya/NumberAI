@@ -1,12 +1,11 @@
 import random
-import time
 from .Layer import Layer
 from Neuron import Neuron 
 import ValueCalculator
 
 class HiddenLayer(Layer):
     def __init__(self, linkedLayer: 'Layer') -> None:
-        super().__init__(16)
+        super().__init__()
         for _ in range(16):
             randomnBias = random.uniform(-2,2)
             neuron = Neuron(None, randomnBias)
