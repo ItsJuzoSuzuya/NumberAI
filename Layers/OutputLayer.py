@@ -1,19 +1,23 @@
 import ValueCalculator
+import random
+import numpy as np
 from Neuron import Neuron
 from .Layer import Layer
 
 class OutputLayer(Layer):
     def __init__(self, linkedLayer: 'Layer') -> None:
         super().__init__()
-        self.clearNeurons()
         for _ in range(10):
+            randomnBias = random.uniform(-2,2)
             neuron = Neuron()
             self.addNeuron(neuron)
-            
-        linkedLayer.connectLayer(self)
+            self.addToBiases(randomnBias)
 
+        linkedLayer.connectLayer(self)
+        self.calculateValue(linkedLayer)
+        
         # neuron.calculateValue(linkedLayer.getNeurons())
 
-        ValueCalculator.calculateValueOfNeuron(self, linkedLayer)
+        # ValueCalculator.calculateValueOfNeuron(self, linkedLayer)
         
     

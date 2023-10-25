@@ -13,10 +13,11 @@ class NeuralNetwork():
         self.train(firstNumber)
 
     def train(self, input):
-       calculateGradientDescent(self.outputLayer.getNeurons(), self.hiddenLayer2)
+        weightInaccuracy, biasInaccuracy =calculateGradientDescent(self.hiddenLayer2.values, self.hiddenLayer2.weights, self.outputLayer.biases)
+        self.hiddenLayer1.weights -= weightInaccuracy
+        self.outputLayer.biases -= biasInaccuracy 
 
-       cost = calculateCost(self.outputLayer.getNeurons(), input)
-       
+        cost = calculateCost(self.outputLayer.getNeurons(), input)
 
 
 def calculateCost(outputs: ['Neuron'], expectedResult):
@@ -29,4 +30,11 @@ def calculateCost(outputs: ['Neuron'], expectedResult):
     return cost
 
 def calculateGradientDescent(values, weights, biases):
-    pass
+    z = np.dot(weights, values) + biases
+
+    weightGradientDescent = -2*values*(1-z)
+    biasGradientDescent = -2*(1-z)
+
+    return weightGradientDescent, biasGradientDescent
+
+

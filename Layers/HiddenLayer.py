@@ -1,7 +1,8 @@
 import random
+import numpy as np
 from .Layer import Layer
 from Neuron import Neuron 
-import ValueCalculator
+# import ValueCalculator
 
 class HiddenLayer(Layer):
     def __init__(self, linkedLayer: 'Layer') -> None:
@@ -10,13 +11,15 @@ class HiddenLayer(Layer):
             randomnBias = random.uniform(-2,2)
             neuron = Neuron(None, randomnBias)
             self.addNeuron(neuron)
-            
+            self.addToBiases(randomnBias)
+
         linkedLayer.connectLayer(self)
+        self.calculateValue(linkedLayer)
 
         # for neuron in self.getNeurons():
         #     neuron.calculateValue(linkedLayer.getNeurons())
         
-        ValueCalculator.calculateValueOfNeuron(self, linkedLayer)
+        # ValueCalculator.calculateValueOfNeuron(self, linkedLayer)
 
 
             
