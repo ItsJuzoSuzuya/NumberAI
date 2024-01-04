@@ -1,7 +1,7 @@
 import ValueCalculator
 import random
 import numpy as np
-from Neuron import Neuron
+from neuron import Neuron
 from .Layer import Layer
 
 class OutputLayer(Layer):

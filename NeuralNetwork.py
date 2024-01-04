@@ -1,5 +1,5 @@
 import numpy as np
-from Neuron import Neuron
+from neuron import Neuron
 from Layers.InputLayer import InputLayer
 from Layers.OutputLayer import OutputLayer
 from Layers.HiddenLayer import HiddenLayer
@@ -13,28 +13,41 @@ class NeuralNetwork():
         self.train(firstNumber)
 
     def train(self, input):
-        weightInaccuracy, biasInaccuracy =calculateGradientDescent(self.hiddenLayer2.values, self.hiddenLayer2.weights, self.outputLayer.biases)
+        weightInaccuracy, biasInaccuracy = calculateGradientDescent(self.hiddenLayer2.values, self.hiddenLayer2.weights, self.outputLayer.biases, self.outputLayer.values)
         self.hiddenLayer1.weights -= weightInaccuracy
         self.outputLayer.biases -= biasInaccuracy 
 
-        cost = calculateCost(self.outputLayer.getNeurons(), input)
+        cost = self.calculateCost(self.outputLayer.getNeurons(), input)
+        print(cost)
 
-
-def calculateCost(outputs: ['Neuron'], expectedResult):
-    cost = 0
-    for number in range(10):
-        if number == expectedResult:
-           cost += np.power(outputs[number].getValue() - 1, 2)
-        else: cost += np.power(outputs[number].getValue(), 2)
+    def calculateCost(outputs: ['Neuron'], expectedResult):
+        cost = 0
+        for number in range(10):
+            if number == expectedResult:
+                cost += np.power(outputs[number].getValue() - 1, 2)
+            else: cost += np.power(outputs[number].getValue(), 2)
+        
+        return cost
     
-    return cost
+    def backward(self):
+        self.output 
 
-def calculateGradientDescent(values, weights, biases):
-    z = np.dot(weights, values) + biases
+def calculateGradientDescent(values, weights, biases, outputLayer):
 
-    weightGradientDescent = -2*values*(1-z)
-    biasGradientDescent = -2*(1-z)
+    valueToCost = 2*(1-outputLayer)
+    sigmoidDiff = sigmoid_derivative(np.dot(values, weights.T) + biases)
+    weightsTopPreSigmoid = np.dot(values, weights.T) + biases
+
+    weightGradientDescent = valueToCost*sigmoidDiff*weightsTopPreSigmoid
+    
+    biasGradientDescent = -2*(1-outputLayer)
 
     return weightGradientDescent, biasGradientDescent
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+def sigmoid_derivative(x):
+    return sigmoid(x) * (1 - sigmoid(x))
 
 

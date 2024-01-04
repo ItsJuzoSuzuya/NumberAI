@@ -1,7 +1,7 @@
 import random
 import numpy as np
 from .Layer import Layer
-from Neuron import Neuron 
+from neuron import Neuron 
 # import ValueCalculator
 
 class HiddenLayer(Layer):

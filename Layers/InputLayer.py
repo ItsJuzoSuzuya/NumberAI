@@ -1,6 +1,6 @@
 import numpy as np
 from .Layer import Layer
-from Neuron import Neuron
+from neuron import Neuron
 
 class InputLayer(Layer):
     def __init__(self, image) -> None:

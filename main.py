@@ -11,7 +11,7 @@ from NeuralNetwork import NeuralNetwork
 # for image in train_X:
 
 neuralNetwork = NeuralNetwork(trainImages[0], trainNumbers[0])   
-neuralNetwork.train(trainNumbers[1])
+#neuralNetwork.train(trainNumbers[1])
 
 
 
