@@ -1,0 +1,9 @@
+This folder is a result of my struggle with the 
+implementation of the Backpropagation algorithm and other common conventions.
+
+After implementing the forwarding,
+I got stuck on understanding the Math of Backpropagation how it should would work in Code.
+
+So I decided to go further than 2Blue1Browns Videos 
+and buy the Neural Networks from Scratch book and use it 
+for further education on how the concept in NNs work.

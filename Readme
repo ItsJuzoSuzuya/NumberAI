@@ -1,0 +1,12 @@
+I've stumbled across a video tutorial from 3Blue1Brown -> https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=uj70urmCrOQ_Y32o
+
+Here he covers some fundamental mathematic and functionalities of Neural Network using a number recognition AI.
+Which inspired me to take it and build it in code.
+
+This is where I started off and until I hit the backpropagation part I coded it without further help or information.
+That code is in ./OLD and is neither finished nor it conducts common conventions.
+
+When i hit backpropagation I created the folder NNFS and used it to understand certain ideas more and get a fast working backpropagation algorithm working. 
+I'll forward you to the Readme there :P
+
+The NEW folder is for the combination of both and the more optimized and explained version of the NN.

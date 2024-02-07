@@ -1,4 +1,4 @@
-import ValueCalculator
+import OLD.ValueCalculator as ValueCalculator
 import random
 import numpy as np
 from neuron import Neuron
